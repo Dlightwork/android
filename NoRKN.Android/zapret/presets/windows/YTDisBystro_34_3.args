@@ -1,0 +1,35 @@
+# === HTTPS YouTube ===
+--filter-tcp=443 --ipset=russia-youtube-rtmps.txt --dpi-desync=syndata --dpi-desync-fake-syndata=syn_packet.bin --dup=2 --dup-cutoff=n3
+
+# === QUIC YouTube ===
+--filter-udp=443 --hostlist=russia-youtubeQ.txt --dpi-desync=fake,udplen --dpi-desync-udplen-increment=8 --dpi-desync-udplen-pattern=0xFEA82025 --dpi-desync-fake-quic=quic_4.bin --dpi-desync-cutoff=n4 --dpi-desync-repeats=2
+
+# === HTTPS YouTube ===
+--filter-tcp=443 --hostlist-domains=googlevideo.com --hostlist=russia-youtube.txt --ipcache-hostname --dpi-desync=syndata,fake,multisplit --dpi-desync-split-pos=sld+1 --dpi-desync-fake-syndata=tls_clienthello_7.bin --dpi-desync-fake-tls=0x0F0F0E0F --dpi-desync-fake-tls=tls_clienthello_9.bin --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=md5sig --dpi-desync-autottl --dup=2 --dup-fooling=md5sig --dup-autottl --dup-cutoff=n3
+
+# === HTTPS ===
+--filter-tcp=443 --hostlist=other.txt --hostlist=faceinsta.txt --hostlist=russia-blacklist.txt --hostlist=myhostlist.txt --hostlist=mycdnlist.txt --dpi-desync=fake,multisplit --dpi-desync-split-pos=2,midsld --dpi-desync-fake-tls=tls_clienthello_17.bin --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=md5sig --dpi-desync-autottl --dup=2 --dup-fooling=md5sig --dup-autottl --dup-cutoff=n3
+
+# === HTTPS Discord ===
+--filter-tcp=443 --hostlist-domains=updates.discord.com,stable.dl2.discordapp.net,animego.online,animejoy.ru,rutracker.org,static.rutracker.cc,pixiv.net,cdn77.com --dpi-desync=multisplit --dpi-desync-split-seqovl=293 --dpi-desync-split-seqovl-pattern=tls_clienthello_12.bin
+
+# === HTTPS ===
+--filter-tcp=443 --hostlist-domains=awsglobalaccelerator.com,cloudfront.net,amazon.com,amazonaws.com,awsstatic.com --dpi-desync=multisplit --dpi-desync-split-seqovl=211 --dpi-desync-split-seqovl-pattern=tls_clienthello_5.bin
+
+# === HTTPS ===
+--filter-l3=ipv6 --filter-tcp=443 --ipset=cloudflare-ipset_v6.txt --ipset-exclude-ip=2606:4700:4700::1111,2606:4700:4700::1001 --dpi-desync=multisplit --dpi-desync-split-seqovl=226 --dpi-desync-split-seqovl-pattern=tls_clienthello_18.bin --dup=2 --dup-cutoff=n3
+
+# === HTTPS ===
+--filter-l3=ipv4 --filter-tcp=443 --ipset=cloudflare-ipset.txt --ipset-exclude-ip=1.1.1.1,1.0.0.1,212.109.195.93,83.220.169.155,141.105.71.21,18.244.96.0/19,18.244.128.0/19 --dpi-desync=fake,multisplit --dpi-desync-split-seqovl=1 --dpi-desync-split-pos=1,midsld --dpi-desync-fake-tls=0x0F0F0E0F --dpi-desync-fake-tls=tls_clienthello_9.bin --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=md5sig --dpi-desync-autottl --dup=2 --dup-fooling=md5sig --dup-autottl --dup-cutoff=n3
+
+# === Discord Voice ===
+--filter-l3=ipv6 --filter-udp=50000-50090 --filter-l7=discord,stun --dpi-desync=fake --dpi-desync-autottl6 --dup=2 --dup-autottl6 --dup-cutoff=n3
+
+# === Discord Voice ===
+--filter-l3=ipv4 --filter-udp=50000-50090 --filter-l7=discord,stun --dpi-desync=fake --dpi-desync-autottl --dup=2 --dup-autottl --dup-cutoff=n3
+
+# === HTTP (порт 80) ===
+--filter-l3=ipv4 --filter-tcp=80 --hostlist-auto=autohostlist.txt --hostlist-exclude=netrogat.txt --dpi-desync=fake,multisplit --dpi-desync-split-seqovl=2 --dpi-desync-split-pos=host+1 --dpi-desync-fake-http=0x0E0E0F0E --dpi-desync-fooling=md5sig
+
+# === HTTPS ===
+--filter-l3=ipv4 --filter-tcp=443 --hostlist-auto=autohostlist.txt --hostlist-exclude=netrogat.txt --dpi-desync=fake,fakedsplit --dpi-desync-split-pos=1 --dpi-desync-fake-tls=tls_clienthello_9.bin --dpi-desync-fooling=badseq --dpi-desync-autottl

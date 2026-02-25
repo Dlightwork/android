@@ -1,0 +1,8 @@
+# === HTTPS YouTube ===
+--filter-tcp=443 --hostlist=russia-blacklist.txt --hostlist=other.txt --hostlist=youtube.txt --hostlist=discord.txt --dpi-desync=fake,multidisorder --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-repeats=3 --dpi-desync-split-pos=100,midsld,sniext+1,endhost-2,-10 --dpi-desync-ttl=4
+
+# === QUIC ===
+--filter-udp=443 --dpi-desync=fake --dpi-desync-fake-quic=quic_initial_www_google_com.bin --dpi-desync-repeats=6
+
+# === Discord Voice ===
+--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake,tamper --dpi-desync-repeats=6 --dpi-desync-fake-discord=0x00

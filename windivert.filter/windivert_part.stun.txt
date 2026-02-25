@@ -1,0 +1,1 @@
+outbound and udp and ((udp.DstPort == 3478 or udp.SrcPort == 3478) or (udp.DstPort == 3479 or udp.SrcPort == 3479) or (udp.DstPort >= 19302 and udp.DstPort <= 19309) or (udp.SrcPort >= 19302 and udp.SrcPort <= 19309))

@@ -1,0 +1,1 @@
+outbound and udp and ((udp.DstPort == 51820 or udp.SrcPort == 51820) or (udp.DstPort == 51821 or udp.SrcPort == 51821))

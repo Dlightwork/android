@@ -1,0 +1,38 @@
+# === QUIC ===
+--filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic=quic_initial_www_google_com.bin
+
+# === Discord Voice ===
+--filter-udp=50000-50100 --ipset=ipset-discord.txt --dpi-desync=fake --dpi-desync-any-protocol --dpi-desync-cutoff=d3 --dpi-desync-repeats=6
+
+# === HTTP (порт 80) ===
+--filter-tcp=80 --dpi-desync=fake,split2 --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig
+
+# === HTTPS ===
+--filter-tcp=443 --hostlist-exclude=netrogat.txt --dpi-desync=split --dpi-desync-split-pos=1 --dpi-desync-autottl --dpi-desync-fooling=badseq --dpi-desync-repeats=8
+
+# === Discord TCP ===
+--filter-tcp=6695-6705 --dpi-desync=fake,split2 --dpi-desync-repeats=8 --dpi-desync-fooling=md5sig --dpi-desync-autottl=2 --dpi-desync-fake-tls=tls_clienthello_www_google_com.bin
+
+# === TCP порт 2099 ===
+--filter-tcp=2099,5222,5223,8393-8400 --ipset=ipset-cloudflare.txt --dpi-desync=syndata
+
+# === UDP порт 2099 ===
+--filter-udp=2099,5222,5223,8393-8400 --ipset=ipset-cloudflare.txt --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic=quic_initial_www_google_com.bin
+
+# === UDP порт 5056 ===
+--filter-udp=5056,27002 --dpi-desync-any-protocol --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-cutoff=n15 --dpi-desync-fake-unknown-udp=quic_initial_www_google_com.bin
+
+# === UDP порт 5000 ===
+--filter-udp=5000-5500 --ipset=ipset-lol-ru.txt --dpi-desync=fake --dpi-desync-repeats=6
+
+# === UDP порт 5056 ===
+--filter-udp=5056,27002 --dpi-desync-any-protocol --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-cutoff=n15 --dpi-desync-fake-unknown-udp=quic_initial_www_google_com.bin
+
+# === TCP порт 2099 ===
+--filter-tcp=2099 --ipset=ipset-lol-ru.txt --dpi-desync=syndata
+
+# === TCP порт 5222 ===
+--filter-tcp=5222,5223 --ipset=ipset-lol-euw.txt --dpi-desync=syndata
+
+# === UDP порт 5000 ===
+--filter-udp=5000-5500 --ipset=ipset-lol-euw.txt --dpi-desync=fake --dpi-desync-repeats=6

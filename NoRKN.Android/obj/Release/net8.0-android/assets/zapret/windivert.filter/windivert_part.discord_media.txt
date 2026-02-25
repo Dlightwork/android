@@ -1,0 +1,1 @@
+outbound and udp and (udp.DstPort >= 50000 and udp.DstPort <= 65535)

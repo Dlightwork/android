@@ -1,0 +1,61 @@
+# Build directories
+build/
+out/
+bin/
+Debug/
+Release/
+x64/
+x86/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# Visual Studio files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# Compiled files
+*.exe
+*.dll
+*.lib
+*.obj
+*.o
+*.a
+*.so
+*.pdb
+*.ilk
+*.exp
+
+# WinDivert driver (should be copied, not committed)
+WinDivert64.sys
+WinDivert32.sys
+WinDivert.dll
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

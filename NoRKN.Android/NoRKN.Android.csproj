@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NoRKN.Android</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationTitle>NoRKN</ApplicationTitle>
+    <ApplicationId>com.norkn.app</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <RuntimeIdentifiers>android-arm64;android-arm;android-x86;android-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <!-- Stability-first runtime settings for broad Android device compatibility.
+       Prevents startup crashes in some Release+AOT combinations. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <PublishTrimmed>false</PublishTrimmed>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
+    <UseInterpreter>true</UseInterpreter>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Include all .bin files located directly in the zapret folder and map
+      them under zapret/bin in the packaged assets. The runtime expects
+      assets to reside under zapret/bin, but the repository stores .bin
+      files at the root of zapret. This mapping ensures that the asset
+      extraction code sees them as located in zapret/bin. We still include
+      any files actually in zapret/bin/**/*.bin for forward compatibility.
+    -->
+    <AndroidAsset Include="zapret/*.bin"
+                  Link="zapret/bin/%(Filename)%(Extension)" />
+
+    <AndroidAsset Include="zapret/bin/**/*.bin"
+                  Link="zapret/bin/%(RecursiveDir)%(Filename)%(Extension)" />
+
+    <AndroidAsset Include="zapret/lists/**/*.txt"
+                  Exclude="zapret/lists/**/*Zone.Identifier*"
+                  Link="zapret/lists/%(RecursiveDir)%(Filename)%(Extension)" />
+
+    <AndroidAsset Include="zapret/lua/**/*.lua"
+                  Link="zapret/lua/%(RecursiveDir)%(Filename)%(Extension)" />
+    <AndroidAsset Include="zapret/lua/**/*.txt"
+                  Link="zapret/lua/%(RecursiveDir)%(Filename)%(Extension)" />
+
+    <AndroidAsset Include="zapret/presets/**/*.args"
+                  Link="zapret/presets/%(RecursiveDir)%(Filename)%(Extension)" />
+
+    <AndroidAsset Include="zapret/windivert.filter/**/*.txt"
+                  Link="zapret/windivert.filter/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

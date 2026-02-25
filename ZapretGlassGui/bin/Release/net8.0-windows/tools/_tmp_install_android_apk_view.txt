@@ -1,0 +1,54 @@
+param(
+    [string]$Configuration = "Release",
+    [string]$PackageId = "com.norkn.app",
+    [string]$ApkPath = ""
+)
+
+$ErrorActionPreference = "Stop"
+
+$repoRoot = Split-Path -Path $PSScriptRoot -Parent
+$defaultApk = Join-Path $repoRoot "NoRKN.Android\bin\$Configuration\net8.0-android\publish\NoRKN.apk"
+if ([string]::IsNullOrWhiteSpace($ApkPath)) {
+    $ApkPath = $defaultApk
+}
+
+$adbLocal = Join-Path $repoRoot "_android_sdk\platform-tools\adb.exe"
+$adb = if (Test-Path $adbLocal) { $adbLocal } else { "adb" }
+
+if (-not (Test-Path $ApkPath)) {
+    throw "APK not found: $ApkPath"
+}
+
+Write-Host "Using adb: $adb"
+& $adb start-server | Out-Null
+
+$devicesOutput = & $adb devices
+$devicesText = ($devicesOutput -join "`n")
+Write-Host $devicesText
+
+$online = $devicesOutput | Where-Object { $_ -match "\tdevice$" }
+if (-not $online) {
+    throw "No authorized Android device found. Enable USB debugging and accept RSA prompt."
+}
+
+Write-Host "Installing: $ApkPath" -ForegroundColor Cyan
+$installOutput = & $adb install -r -d -g "$ApkPath" 2>&1
+$text = ($installOutput -join "`n")
+Write-Host $text
+
+if ($text -match "INSTALL_FAILED_UPDATE_INCOMPATIBLE" -or $text -match "INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES") {
+    Write-Host "Signature mismatch with installed app. Reinstalling..." -ForegroundColor Yellow
+    & $adb uninstall $PackageId | Out-Null
+    $retry = & $adb install -r -d -g "$ApkPath" 2>&1
+    $retryText = ($retry -join "`n")
+    Write-Host $retryText
+
+    if ($retryText -notmatch "Success") {
+        throw "Install failed after reinstall attempt: $retryText"
+    }
+}
+elseif ($text -notmatch "Success") {
+    throw "Install failed: $text"
+}
+
+Write-Host "Install completed." -ForegroundColor Green

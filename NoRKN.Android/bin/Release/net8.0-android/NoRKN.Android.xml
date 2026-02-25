@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NoRKN.Android</name>
+    </assembly>
+    <members>
+        <member name="T:NoRKN.Android.BootCompletedReceiver">
+            <summary>
+            Handles system boot completion broadcasts and optionally starts the VPN
+            service if the user has enabled the autostart setting. When the device
+            boots this receiver loads the stored <see cref="T:NoRKN.Android.TunnelSettings"/> and,
+            if <see cref="P:NoRKN.Android.TunnelSettings.AutoStartOnBoot"/> is true, it starts
+            <see cref="T:NoRKN.Android.NorknVpnService"/> with the configured profile.
+            </summary>
+        </member>
+        <member name="F:NoRKN.Android.NorknVpnService.ActionStartProfile">
+            <summary>
+            Action used to start the VPN service with a specific profile or mode. The
+            BootCompletedReceiver uses this action to initiate the service when
+            autostart is enabled. It behaves similarly to <see cref="F:NoRKN.Android.NorknVpnService.ActionStart"/>,
+            but allows external callers to distinguish profile-based starts.
+            </summary>
+        </member>
+        <member name="F:NoRKN.Android.NorknVpnService.ExtraProfile">
+            <summary>
+            Extra key used to specify the desired VPN profile (mode) when
+            starting the service. For backward compatibility the service also
+            reads <see cref="F:NoRKN.Android.NorknVpnService.ExtraMode"/>.
+            </summary>
+        </member>
+        <member name="P:NoRKN.Android.TunnelSettings.AutoStartOnBoot">
+            <summary>
+            Flag indicating whether the VPN service should automatically start
+            after the device boots. When set to <c>true</c>, the
+            <see cref="T:NoRKN.Android.BootCompletedReceiver"/> will trigger a call to the
+            <see cref="T:NoRKN.Android.NorknVpnService"/> during the boot sequence.
+            </summary>
+        </member>
+        <member name="P:NoRKN.Android.TunnelSettings.AutoStartProfile">
+            <summary>
+            The name of the profile (or mode) that should be used when
+            automatically starting the VPN service on boot. If empty, the
+            current <see cref="P:NoRKN.Android.TunnelSettings.Mode"/> will be used instead.
+            </summary>
+        </member>
+    </members>
+</doc>

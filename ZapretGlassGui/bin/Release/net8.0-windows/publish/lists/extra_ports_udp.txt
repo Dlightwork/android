@@ -1,0 +1,22 @@
+# Additional UDP ports used by voice/video and collaboration services.
+# Lines starting with '#' are comments and will be ignored.
+# Use ranges for large blocks of ports.
+
+# STUN/TURN/ICE ports for WebRTC (Teams, Skype, Discord)
+3478-3481
+
+# Discord voice ports (media websockets)
+6457-6463
+
+# Teams/Skype/Zoom media port ranges
+49152-65535
+50000-60000
+
+# Zoom client ports
+3478
+3479
+8801
+8802
+
+# Webex media port
+9000

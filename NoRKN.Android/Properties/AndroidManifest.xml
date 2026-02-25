@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- Network and VPN permissions -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  
+  <!-- Foreground service permissions (for persistent VPN) -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+  
+  <!-- Boot completion for auto-start -->
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  
+  <!-- Storage (if needed for logs) -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <application
+    android:label="NoRKN"
+    android:icon="@mipmap/ic_launcher"
+    android:allowBackup="false"
+    android:supportsRtl="true"
+    android:usesCleartextTraffic="true">
+  </application>
+</manifest>

@@ -1,0 +1,14 @@
+# === Discord Voice ===
+--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake
+
+# === HTTP (порт 80) ===
+--filter-tcp=80 --hostlist=russia-blacklist.txt --dpi-desync=fake,multisplit --dpi-desync-ttl=0 --dpi-desync-fooling=md5sig,badsum
+
+# === HTTPS YouTube ===
+--filter-tcp=443 --hostlist=russia-blacklist.txt --hostlist=ipset-all.txt --hostlist=discord.txt --hostlist=youtube.txt --hostlist=other.txt --hostlist=list-general.txt --dpi-desync=fake,multidisorder --dpi-desync-split-pos=method+2,midsld,5 --dpi-desync-ttl=0 --dpi-desync-fooling=md5sig,badsum,badseq --dpi-desync-repeats=15 --dpi-desync-fake-tls=tls_clienthello_www_google_com.bin
+
+# === QUIC ===
+--filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=15 --dpi-desync-ttl=0 --dpi-desync-any-protocol --dpi-desync-cutoff=d4 --dpi-desync-fooling=md5sig,badsum --dpi-desync-fake-quic=quic_initial_www_google_com.bin
+
+# === Discord Voice ===
+--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake

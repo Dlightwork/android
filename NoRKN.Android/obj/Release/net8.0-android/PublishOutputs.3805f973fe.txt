@@ -1,0 +1,3 @@
+D:\project2\NoRKN.Android\bin\Release\net8.0-android\publish\com.norkn.app-Signed.apk
+D:\project2\NoRKN.Android\bin\Release\net8.0-android\publish\com.norkn.app.apk
+D:\project2\NoRKN.Android\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

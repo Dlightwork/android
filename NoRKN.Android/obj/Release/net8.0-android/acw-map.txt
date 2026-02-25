@@ -1,0 +1,12 @@
+NoRKN.Android.BootCompletedReceiver, NoRKN.Android;crc64fae9415459c5fc2a.BootCompletedReceiver
+NoRKN.Android.BootCompletedReceiver;crc64fae9415459c5fc2a.BootCompletedReceiver
+norkn.android.BootCompletedReceiver;crc64fae9415459c5fc2a.BootCompletedReceiver
+NoRKN.Android.MainActivity, NoRKN.Android;crc64fae9415459c5fc2a.MainActivity
+NoRKN.Android.MainActivity;crc64fae9415459c5fc2a.MainActivity
+norkn.android.MainActivity;crc64fae9415459c5fc2a.MainActivity
+NoRKN.Android.NoRknApplication, NoRKN.Android;crc64fae9415459c5fc2a.NoRknApplication
+NoRKN.Android.NoRknApplication;crc64fae9415459c5fc2a.NoRknApplication
+norkn.android.NoRknApplication;crc64fae9415459c5fc2a.NoRknApplication
+NoRKN.Android.NorknVpnService, NoRKN.Android;com.norkn.app.NorknVpnService
+NoRKN.Android.NorknVpnService;com.norkn.app.NorknVpnService
+com.norkn.app.NorknVpnService;com.norkn.app.NorknVpnService

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Этот код был создан программным средством.
+    Он был создан на основе файла шаблона D:\project2\NoRKN.Android\Properties\AndroidManifest.xml
+    Изменения, внесенные в этот файл, могут привести к неправильному поведению и будут потеряны
+    в случае повторного создания содержимого.
+    -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" package="com.norkn.app" android:versionName="1.0.0">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34" />
+  <!-- Network and VPN permissions -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <!-- Foreground service permissions (for persistent VPN) -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+  <!-- Boot completion for auto-start -->
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <!-- Storage (if needed for logs) -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="NoRKN" android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="true" android:name="crc64fae9415459c5fc2a.NoRknApplication" android:extractNativeLibs="true">
+    <receiver android:enabled="true" android:exported="true" android:name="crc64fae9415459c5fc2a.BootCompletedReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+      </intent-filter>
+    </receiver>
+    <activity android:exported="true" android:icon="@mipmap/ic_launcher" android:label="NoRKN" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:name="crc64fae9415459c5fc2a.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <service android:exported="true" android:name="com.norkn.app.NorknVpnService" android:permission="android.permission.BIND_VPN_SERVICE">
+      <intent-filter>
+        <action android:name="android.net.VpnService" />
+      </intent-filter>
+    </service>
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.norkn.app.mono.MonoRuntimeProvider.__mono_init__" />
+  </application>
+</manifest>

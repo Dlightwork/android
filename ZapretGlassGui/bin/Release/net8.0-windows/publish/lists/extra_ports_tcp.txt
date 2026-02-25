@@ -1,0 +1,18 @@
+# Additional TCP ports used by voice/video and collaboration services.
+# Lines starting with '#' are comments and will be ignored.
+# Single numbers represent individual ports; ranges are defined as start-end.
+
+# Discord WebSocket/voice ports
+6463
+6457-6463
+
+# Zoom client ports
+8801
+8802
+
+# Microsoft Teams fallback/signal ports
+8080
+5061
+
+# Webex media port (fallback to TCP)
+9000

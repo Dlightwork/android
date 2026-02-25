@@ -1,0 +1,129 @@
+# OpenAI / ChatGPT (official network recommendations + product endpoints)
+auth.openai.com
+chatgpt.com
+chat.openai.com
+android.chat.openai.com
+desktop.chat.openai.com
+ios.chat.openai.com
+tcr9i.chat.openai.com
+openai.com
+api.openai.com
+platform.openai.com
+status.openai.com
+help.openai.com
+oaistatic.com
+cdn.oaistatic.com
+oaiusercontent.com
+files.oaiusercontent.com
+auth0.openai.com
+setup.auth.openai.com
+chatgpt.livekit.cloud
+ct.sendgrid.net
+featuregates.org
+featureassets.org
+intercom.io
+intercomcdn.com
+js.intercomcdn.com
+statsig.com
+statsigapi.net
+events.statsigapi.net
+cdn.openaimerge.com
+cdn.workos.com
+forwarder.workos.com
+images.workoscdn.com
+setup.workos.com
+workos.imgix.net
+challenges.cloudflare.com
+js.stripe.com
+o207216.ingest.sentry.io
+o33249.ingest.sentry.io
+rum.browser-intake-datadoghq.com
+humb.apple.com
+register.appattest.apple.com
+
+# Anthropic / Claude
+anthropic.com
+claude.ai
+api.anthropic.com
+console.anthropic.com
+platform.claude.com
+docs.anthropic.com
+support.anthropic.com
+privacy.anthropic.com
+
+# Google AI / Gemini
+gemini.google.com
+aistudio.google.com
+ai.google.dev
+generativelanguage.googleapis.com
+makersuite.google.com
+
+# Perplexity
+perplexity.ai
+www.perplexity.ai
+api.perplexity.ai
+docs.perplexity.ai
+
+# DeepSeek
+deepseek.com
+chat.deepseek.com
+api.deepseek.com
+api-docs.deepseek.com
+cdn.deepseek.com
+
+# xAI / Grok
+x.ai
+grok.com
+api.x.ai
+management-api.x.ai
+docs.x.ai
+console.x.ai
+accounts.x.ai
+status.x.ai
+
+# Mistral
+mistral.ai
+chat.mistral.ai
+console.mistral.ai
+admin.mistral.ai
+docs.mistral.ai
+api.mistral.ai
+codestral.mistral.ai
+help.mistral.ai
+
+# Poe
+poe.com
+www.poe.com
+api.poe.com
+creator.poe.com
+
+# Hugging Face
+huggingface.co
+hf.co
+api-inference.huggingface.co
+router.huggingface.co
+
+# GitHub Copilot
+github.com
+api.github.com
+githubcopilot.com
+individual.githubcopilot.com
+business.githubcopilot.com
+enterprise.githubcopilot.com
+copilot-proxy.githubusercontent.com
+origin-tracker.githubusercontent.com
+copilot-telemetry.githubusercontent.com
+githubusercontent.com
+
+# Cohere
+cohere.com
+cohere.ai
+api.cohere.com
+dashboard.cohere.com
+docs.cohere.com
+
+# OpenRouter
+openrouter.ai
+
+# Microsoft Copilot
+copilot.microsoft.com
